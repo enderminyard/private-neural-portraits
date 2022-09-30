@@ -1,10 +1,16 @@
-name: Colab Badge Action
-run-name: ${{ github.actor }} is testing out Colab Badge Action 🚀
+name: Update Badges
 on: [push]
+
 jobs:
-  Colab Badge Action:
+  badges:
+    name: Badge Job
     runs-on: ubuntu-latest
     steps:
-      - name: Colab Badge Action
+      - name: Checkout first
+        id: checkout
+        uses: actions/checkout@v2
+
+      - name: Add/Update badges
+        id: badges
         uses: trsvchn/colab-badge-action@v4
-  
+
